@@ -33,7 +33,7 @@ public class Bank {
         for (Customer customer : customers) {
             if (customer.getName().equalsIgnoreCase(name)) {
                 for (Double amount : customer.transactions) {
-                    System.out.println("Amount: " + amount);
+                    System.out.println("Amount: R" + amount);
                 }
             }
         }
