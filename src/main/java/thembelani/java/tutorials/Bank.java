@@ -82,7 +82,7 @@ public class Bank {
             }
         }
 
-        System.out.printf("Customer (%s) was not found %n",name);
+        System.out.printf("Customer (%s) was not found %n", name);
         return null;
     }
 }
