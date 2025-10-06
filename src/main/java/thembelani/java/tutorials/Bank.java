@@ -1,6 +1,7 @@
 package thembelani.java.tutorials;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 //The bank should add a new customer, if they're not yet already in the list
 //The bank class should allow customers to add a transaction, to an existing Customer.
@@ -16,7 +17,31 @@ public class Bank {
         this.customers = new ArrayList<>();
     }
 
-    public boolean addTransaction(String customerName, double amount) {
+    public void printCustomers() {
+        Iterator<Customer> iterator2 = this.customers.iterator();
+        int indx = 1;
+        while (iterator2.hasNext()) {
+            System.out.println(indx + ". Name: " + iterator2.next().getName().toUpperCase());
+        }
+    }
+
+    public void printStatement(String name) {
+
+        System.out.println("-".repeat(10) + "Statement Of Transactions" + "-".repeat(10));
+        System.out.println("Customer Name: " + name.toUpperCase());
+
+        for (Customer customer : customers) {
+            if (customer.getName().equalsIgnoreCase(name)) {
+                for (Double amount : customer.transactions) {
+                    System.out.println("Amount: " + amount);
+                }
+            }
+        }
+
+        System.out.println("-".repeat(50) + "End" + "-".repeat(50));
+    }
+
+    public boolean addTransaction(String name, double amount) {
         Customer tempCustomer = findCustomer(name);
 
         if (tempCustomer == null) {
@@ -26,6 +51,24 @@ public class Bank {
         return tempCustomer.addTransaction(amount);
 
     }
+
+    public boolean addCustomer(Customer customer) {
+
+        if (findCustomer(customer.getName()) == null) {
+            return this.customers.add(customer);
+        }
+        return false;
+    }
+
+    public boolean addCustomer(String name) {
+
+        if (findCustomer(name) == null) {
+            return this.customers.add(new Customer(name));
+
+        }
+        return false;
+    }
+
 
     public Customer findCustomer(String name) {
 
@@ -39,6 +82,7 @@ public class Bank {
             }
         }
 
+        System.out.printf("Customer (%s) was not found %n",name);
         return null;
     }
 }

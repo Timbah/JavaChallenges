@@ -5,12 +5,12 @@ import java.util.ArrayList;
 public class Customer {
 
     private String name;
-    private ArrayList<Double> transactions;
+    protected ArrayList<Double> transactions;
 
     //A customer's transaction can be a credit, which mean a positive amount, or it can be a debit, a negative amount.
 
     public Customer(String name) {
-        this.name = name;
+        this.name = name.toUpperCase();
         this.transactions = new ArrayList<>();
     }
 
