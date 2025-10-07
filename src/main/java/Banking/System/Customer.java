@@ -5,11 +5,15 @@ import java.util.ArrayList;
 public class Customer {
 
     private String name;
-    private ArrayList<Double> transactions = new ArrayList<>(1000);
+    private ArrayList<Double> transactions;
 
     public Customer(String name, double initialTransaction) {
         this.name = name;
-        this.transactions.add(initialTransaction);
+        this.transactions = new ArrayList<>(100);
+
+        if (initialTransaction > 0) {
+            this.transactions.add(initialTransaction);
+        }
     }
 
     public void addTransaction(double transaction) {
