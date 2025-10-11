@@ -2,6 +2,10 @@ package thembelani.java.tutorials.store.app;
 
 import java.util.ArrayList;
 
+record OrderItem(int qty, ProductForSale product) {
+
+}
+
 public class Store {
 
     private static ArrayList<ProductForSale> storeProducts = new ArrayList<>();
@@ -12,6 +16,12 @@ public class Store {
         storeProducts.add(new Bread("White", 14.50, "Sasko"));
 
         listProducts();
+
+        ArrayList<OrderItem> order = new ArrayList<>();
+        order.add(new OrderItem(5,storeProducts.get(1)));
+        order.add(new OrderItem(1,storeProducts.get(0)));
+
+        printOrder(order);
     }
 
     public static void listProducts() {
@@ -22,5 +32,19 @@ public class Store {
         }
     }
 
+    public static void addItemToOrder(ArrayList<OrderItem> order, int orderIndex, int qty) {
 
+        order.add(new OrderItem(qty, storeProducts.get(orderIndex)));
+    }
+
+    public static void printOrder(ArrayList<OrderItem> order) {
+
+        double salesTotal = 0;
+        for (var item : order) {
+            item.product().printPricedItem(item.qty());
+            salesTotal += item.product().getSalesPrice(item.qty());
+        }
+
+        System.out.printf("Sales Total = R%6.2f %n",salesTotal);
+    }
 }

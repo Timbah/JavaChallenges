@@ -22,7 +22,7 @@ public abstract class ProductForSale {
             System.out.println("N/A");
 
         } else {
-            System.out.printf("%2d x %s @ R%8.2f each = R%.2fn", quantity,
+            System.out.printf("%2d x %s @ R%6.2f each = R%.2f %n", quantity,
                     this.description.toUpperCase(),
                     this.price * quantity, this.price);
         }
