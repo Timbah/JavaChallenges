@@ -1,21 +1,17 @@
 package thembelani.java.tutorials.store.app;
 
 public class Bread extends ProductForSale {
-    public enum BreadTypes {
-        BROWN, WHITE
-    }
 
-    private String breadType;
-
-    public Bread(String breadType) {
-        super("Bread", BreadTypes.BROWN.toString().equals(breadType.toUpperCase()) ? 12.50 : 14.00, breadType.toUpperCase());
-        this.breadType = breadType.toUpperCase();
+    public Bread(String type, double price, String description) {
+        super(type, price, description);
     }
 
     @Override
     public void showDetails() {
 
-        System.out.println(this.breadType);
+        System.out.println("This " + super.type + " is a fresh loaf of bread");
+        System.out.printf("The price of one bread is %8.2f %n", super.price);
+        System.out.println(super.description);
     }
 
 

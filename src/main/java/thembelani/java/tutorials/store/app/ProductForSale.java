@@ -2,9 +2,9 @@ package thembelani.java.tutorials.store.app;
 
 public abstract class ProductForSale {
 
-    private String type;
-    private double price;
-    private String description;
+    protected String type;
+    protected double price;
+    protected String description;
 
     public ProductForSale(String type, double price, String description) {
         this.type = type;
@@ -22,7 +22,7 @@ public abstract class ProductForSale {
             System.out.println("N/A");
 
         } else {
-            System.out.printf("%d x %s @ R%.2f each = R%.2fn", quantity,
+            System.out.printf("%2d x %s @ R%8.2f each = R%.2fn", quantity,
                     this.description.toUpperCase(),
                     this.price * quantity, this.price);
         }
