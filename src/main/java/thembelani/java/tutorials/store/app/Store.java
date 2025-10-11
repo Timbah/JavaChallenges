@@ -18,8 +18,8 @@ public class Store {
         listProducts();
 
         ArrayList<OrderItem> order = new ArrayList<>();
-        order.add(new OrderItem(5,storeProducts.get(1)));
-        order.add(new OrderItem(1,storeProducts.get(0)));
+        addItemToOrder(order,0,1);
+        addItemToOrder(order,1,5);
 
         printOrder(order);
     }
