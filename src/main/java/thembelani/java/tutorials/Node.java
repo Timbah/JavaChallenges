@@ -9,13 +9,13 @@ public class Node extends ListItem {
 
     @Override
     protected ListItem next() {
-        return rightLink;
+        return this.rightLink;
     }
 
     @Override
     protected ListItem setNext(ListItem listItem) {
-        rightLink = listItem;
-        return rightLink;
+        this.rightLink = listItem;
+        return this.rightLink;
     }
 
     @Override
@@ -25,12 +25,16 @@ public class Node extends ListItem {
 
     @Override
     protected ListItem setPrevious(ListItem listItem) {
-        leftLink = listItem;
-        return leftLink;
+        this.leftLink = listItem;
+        return this.leftLink;
     }
 
     @Override
     protected int compareTo(ListItem listItem) {
-        return this.value > listItem.value ? 1 : -1;
+
+        if (listItem != null) {
+            return ((String) super.getValue()).compareTo((String) listItem.getValue());
+        }
+        return -1;
     }
 }

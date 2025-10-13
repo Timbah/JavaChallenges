@@ -4,28 +4,27 @@ public abstract class ListItem {
 
     protected ListItem rightLink;
     protected ListItem leftLink;
-    protected Integer value;
+    protected Object value;
 
-    public ListItem(Integer value) {
+    public ListItem(Object value) {
         this.value = value;
     }
 
-    protected abstract ListItem next();
+    abstract ListItem next();
 
-    protected abstract ListItem setNext(ListItem listItem);
+    abstract ListItem setNext(ListItem listItem);
 
-    protected abstract ListItem previous();
+    abstract ListItem previous();
 
-    protected abstract ListItem setPrevious(ListItem listItem);
+    abstract ListItem setPrevious(ListItem listItem);
 
-    protected abstract int compareTo(ListItem listItem);
+    abstract int compareTo(ListItem listItem);
 
-    public Integer getValue() {
-
+    public Object getValue() {
         return this.value;
     }
 
-    public void setValue(Integer object) {
+    public void setValue(Object object) {
         this.value = object;
     }
 
